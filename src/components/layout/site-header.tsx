@@ -1,19 +1,20 @@
 import Link from "next/link";
 
+import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { Container } from "@/components/ui/container";
 
 const navigation = [
   { href: "#servicos", label: "Serviços" },
   { href: "#como-trabalhamos", label: "Como trabalhamos" },
   { href: "#sobre", label: "Sobre" },
-];
+] as const;
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-xl">
       <Container className="flex h-20 items-center justify-between gap-6">
         <Link
-          href="/"
+          href="#inicio"
           className="flex items-center gap-3 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
           aria-label="LRA Software — página inicial"
         >
@@ -41,13 +42,16 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link
-          href="#contato"
-          className="inline-flex min-h-11 items-center justify-center rounded-xl border border-cyan/30 bg-cyan/10 px-4 text-sm font-bold text-cyan transition-colors hover:border-cyan/60 hover:bg-cyan/15 focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-4 focus-visible:ring-offset-ink focus-visible:outline-none sm:px-5"
-        >
-          <span className="hidden sm:inline">Falar sobre um projeto</span>
-          <span className="sm:hidden">Contato</span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="#contato"
+            className="hidden min-h-11 items-center justify-center rounded-xl border border-cyan/30 bg-cyan/10 px-5 text-sm font-bold text-cyan transition-colors hover:border-cyan/60 hover:bg-cyan/15 focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-4 focus-visible:ring-offset-ink focus-visible:outline-none md:inline-flex"
+          >
+            Falar sobre um projeto
+          </Link>
+
+          <MobileNavigation items={navigation} />
+        </div>
       </Container>
     </header>
   );
