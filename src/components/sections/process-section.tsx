@@ -61,6 +61,7 @@ export function ProcessSection() {
         <div className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <div>
             <SectionHeading
+              titleId="processo-title"
               eyebrow="Como trabalhamos"
               title="Do entendimento do problema à solução em produção."
               description="O processo é organizado para reduzir incertezas, validar decisões cedo e manter o projeto conectado às necessidades reais da operação."
@@ -70,7 +71,7 @@ export function ProcessSection() {
               {principles.map((principle) => (
                 <div
                   key={principle.title}
-                  className="rounded-2xl border border-white/10 bg-white/[0.025] p-5"
+                  className="rounded-2xl border border-white/10 bg-white/2.5 p-5"
                 >
                   <h3 className="font-bold text-white">{principle.title}</h3>
 
@@ -83,7 +84,7 @@ export function ProcessSection() {
           <ol className="relative space-y-5">
             <div
               aria-hidden="true"
-              className="absolute top-8 bottom-8 left-6 hidden w-px bg-gradient-to-b from-cyan/60 via-lilac/50 to-mint/40 sm:block"
+              className="absolute top-8 bottom-8 left-6 hidden w-px bg-linear-to-b from-cyan/60 via-lilac/50 to-mint/40 sm:block"
             />
 
             {processSteps.map((step) => (

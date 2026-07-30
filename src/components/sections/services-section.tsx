@@ -51,10 +51,11 @@ export function ServicesSection() {
     <section
       id="servicos"
       aria-labelledby="servicos-title"
-      className="border-y border-white/10 bg-white/[0.02] py-20 sm:py-28"
+      className="border-y border-white/10 bg-white/2 py-20 sm:py-28"
     >
       <Container>
         <SectionHeading
+          titleId="servicos-title"
           eyebrow="Serviços"
           title="Soluções técnicas conectadas ao problema real da empresa."
           description="A LRA atua desde o entendimento da operação até o desenvolvimento, integração, implantação e evolução da solução."
