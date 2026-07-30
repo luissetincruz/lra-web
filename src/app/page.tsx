@@ -1,5 +1,7 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { HeroSection } from "@/components/sections/hero-section";
+import { ProcessSection } from "@/components/sections/process-section";
+import { ServicesSection } from "@/components/sections/services-section";
 
 export default function Home() {
   return (
@@ -29,6 +31,8 @@ export default function Home() {
 
       <main id="conteudo">
         <HeroSection />
+        <ServicesSection />
+        <ProcessSection />
       </main>
     </div>
   );
