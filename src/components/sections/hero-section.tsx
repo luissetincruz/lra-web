@@ -37,12 +37,12 @@ export function HeroSection() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-36 -left-36 h-96 w-96 rounded-full bg-brand/[0.045] blur-3xl"
+        className="pointer-events-none absolute -top-36 -left-36 h-96 w-96 rounded-full bg-brand/4.5 blur-3xl"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-48 -right-40 h-120 w-120 rounded-full bg-brand/[0.025] blur-3xl"
+        className="pointer-events-none absolute top-48 -right-40 h-120 w-120 rounded-full bg-brand/2.5 blur-3xl"
       />
 
       <Container className="relative">
@@ -66,7 +66,7 @@ export function HeroSection() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#contato"
-                className="inline-flex min-h-13 items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold tracking-[-0.01em] text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51_/_18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
+                className="inline-flex min-h-13 items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold tracking-[-0.01em] text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51/18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
               >
                 Conversar sobre um projeto
               </Link>
@@ -99,7 +99,7 @@ export function HeroSection() {
               className="absolute -inset-10 -z-10 rounded-full bg-brand/[0.035] blur-3xl"
             />
 
-            <div className="rounded-[2rem] border border-light-border bg-surface p-5 shadow-card-light sm:p-7">
+            <div className="rounded-4xl border border-light-border bg-surface p-5 shadow-card-light sm:p-7">
               <div className="flex items-start justify-between gap-5 border-b border-light-border pb-6">
                 <div>
                   <p className="font-mono text-xs tracking-[0.18em] text-brand uppercase">

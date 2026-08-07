@@ -20,7 +20,7 @@ export default function Home() {
 
       <main
         id="conteudo"
-        className="relative z-10 bg-background shadow-[0_24px_60px_rgb(0_0_0_/_18%)]"
+        className="relative z-10 bg-background shadow-[0_24px_60px_rgb(0_0_0/18%)]"
       >
         <HeroSection />
         <ServicesSection />
@@ -29,7 +29,7 @@ export default function Home() {
         <ContactSection />
       </main>
 
-      <div aria-hidden="true" className="h-[var(--footer-reveal-height)]" />
+      <div aria-hidden="true" className="h-(--footer-reveal-height)" />
 
       <SiteFooter />
     </div>

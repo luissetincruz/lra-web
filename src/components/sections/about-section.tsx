@@ -73,7 +73,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-light-border bg-surface shadow-card-light">
+          <div className="overflow-hidden rounded-4xl border border-light-border bg-surface shadow-card-light">
             {capabilities.map((capability, index) => (
               <article
                 key={capability.title}

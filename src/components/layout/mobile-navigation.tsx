@@ -95,7 +95,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
 
       <div
         id="mobile-navigation"
-        className={`absolute inset-x-0 top-full isolate z-40 max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-black/5 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.80)_0%,rgba(255,255,255,0.86)_55%,rgba(255,255,255,0.94)_100%)] px-5 py-6 shadow-card-light backdrop-blur-[24px] backdrop-saturate-150 md:hidden ${
+        className={`absolute inset-x-0 top-full isolate z-40 max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-black/5 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.80)_0%,rgba(255,255,255,0.86)_55%,rgba(255,255,255,0.94)_100%)] px-5 py-6 shadow-card-light backdrop-blur-xl backdrop-saturate-150 md:hidden ${
           isOpen ? "block" : "hidden"
         }`}
       >
@@ -117,7 +117,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
           <Link
             href="#contato"
             onClick={closeMenu}
-            className="mt-3 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-sm font-semibold text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51_/_18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none"
+            className="mt-3 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-sm font-semibold text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51/18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none"
           >
             Falar sobre um projeto
           </Link>

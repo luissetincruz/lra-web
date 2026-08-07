@@ -18,10 +18,10 @@ export function ContactSection() {
       className="border-t border-white/10 bg-ink py-20 sm:py-28"
     >
       <Container>
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-panel/80 p-7 shadow-card sm:p-10 lg:p-14">
+        <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-panel/80 p-7 shadow-card sm:p-10 lg:p-14">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-40 -right-24 h-96 w-96 rounded-full bg-brand/[0.08] blur-3xl"
+            className="pointer-events-none absolute -top-40 -right-24 h-96 w-96 rounded-full bg-brand/8 blur-3xl"
           />
 
           <div className="relative grid items-end gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
@@ -57,7 +57,7 @@ export function ContactSection() {
             <div className="flex flex-col items-stretch gap-3 lg:min-w-64">
               <Link
                 href="mailto:luiscruzdesign@gmail.com?subject=Projeto%20para%20a%20LRA%20Software"
-                className="inline-flex min-h-13 items-center justify-center rounded-xl bg-brand px-6 text-center text-sm font-semibold text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51_/_18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-panel focus-visible:outline-none"
+                className="inline-flex min-h-13 items-center justify-center rounded-xl bg-brand px-6 text-center text-sm font-semibold text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51/18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-panel focus-visible:outline-none"
               >
                 Falar sobre um projeto
               </Link>
