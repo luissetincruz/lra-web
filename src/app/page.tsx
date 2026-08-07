@@ -19,16 +19,13 @@ export default function Home() {
       <SiteHeader />
       <main id="conteudo">
         <HeroSection />
-        <div className="bg-ink text-slate-100">
-          <ServicesSection />
-          <ProcessSection />
-          <AboutSection />
-          <ContactSection />
-        </div>
+        <ServicesSection />
+        <ProcessSection />
+        <AboutSection />
+        <ContactSection />
       </main>
-      <div className="bg-ink text-slate-100">
-        <SiteFooter />
-      </div>
+
+      <SiteFooter />
     </div>
   );
 }

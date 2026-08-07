@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
@@ -14,26 +15,25 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 py-10">
+    <footer className="border-t border-light-border bg-background py-10">
       <Container>
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <Link
-              href="/"
-              className="inline-flex items-center gap-3 rounded-lg focus-visible:ring-2 focus-visible:ring-cyan focus-visible:outline-none"
+              href="#inicio"
+              className="inline-flex rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               aria-label="LRA Software — página inicial"
             >
-              <span
-                aria-hidden="true"
-                className="grid h-10 w-10 place-items-center rounded-xl border border-cyan/30 bg-cyan/10 text-xs font-black text-cyan"
-              >
-                LRA
-              </span>
-
-              <span className="font-semibold text-white">LRA Software</span>
+              <Image
+                src="/lra-logo.svg"
+                alt="LRA Software"
+                width={160}
+                height={71}
+                className="h-10 w-auto"
+              />
             </Link>
 
-            <p className="mt-4 max-w-md text-sm leading-6 text-slate-500">
+            <p className="mt-5 max-w-md text-sm leading-6 text-text-muted">
               Sistemas, automações, integrações e inteligência artificial aplicados a operações
               reais.
             </p>
@@ -45,7 +45,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-cyan focus-visible:outline-none"
+                    className="rounded-md text-sm font-medium text-text transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
                   >
                     {item.label}
                   </Link>
@@ -55,7 +55,7 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-light-border pt-6 text-xs text-text-subtle sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} LRA Software. Todos os direitos reservados.</p>
 
           <p>Desenvolvido com Next.js, TypeScript e Tailwind CSS.</p>
