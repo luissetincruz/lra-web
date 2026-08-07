@@ -15,8 +15,8 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-light-border bg-background py-10">
-      <Container>
+    <footer className="fixed inset-x-0 bottom-0 z-0 h-[var(--footer-reveal-height)] border-t border-light-border bg-background py-8">
+      <Container className="flex h-full flex-col justify-between">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <Link

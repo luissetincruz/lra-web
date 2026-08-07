@@ -23,6 +23,15 @@
   --light-border-strong: #cccccc;
 
   /*
+   * Footer reveal
+   *
+   * Reserva o espaço necessário para revelar o footer fixo
+   * quando o conteúdo principal chega ao final da página.
+   */
+
+  --footer-reveal-height: 24rem;
+
+  /*
    * Identidade visual escura
    *
    * Esses tokens continuam sendo usados pelas seções inferiores
@@ -147,6 +156,22 @@ textarea {
   background-size: 44px 44px;
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 86%);
   mask-image: linear-gradient(to bottom, black, transparent 86%);
+}
+
+/*
+ * Footer reveal responsivo
+ */
+
+@media (min-width: 640px) {
+  :root {
+    --footer-reveal-height: 21rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --footer-reveal-height: 16rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

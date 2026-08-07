@@ -8,7 +8,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 
 export default function Home() {
   return (
-    <div className="relative isolate min-h-screen overflow-x-clip bg-background">
+    <div className="relative min-h-screen overflow-x-clip bg-background">
       <a
         href="#conteudo"
         className="sr-only z-100 rounded-lg bg-brand px-4 py-3 font-semibold text-text focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
@@ -17,13 +17,19 @@ export default function Home() {
       </a>
 
       <SiteHeader />
-      <main id="conteudo">
+
+      <main
+        id="conteudo"
+        className="relative z-10 bg-background shadow-[0_24px_60px_rgb(0_0_0_/_18%)]"
+      >
         <HeroSection />
         <ServicesSection />
         <ProcessSection />
         <AboutSection />
         <ContactSection />
       </main>
+
+      <div aria-hidden="true" className="h-[var(--footer-reveal-height)]" />
 
       <SiteFooter />
     </div>
