@@ -34,19 +34,19 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden items-center gap-8 md:flex">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md text-sm font-medium text-text-muted transition-colors hover:text-text focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-8">
+          <nav aria-label="Navegação principal" className="hidden items-center gap-8 md:flex">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-md text-sm font-medium text-text-muted transition-colors hover:text-text focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-3">
           <Link
             href="#contato"
             className="hidden min-h-11 items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold tracking-[-0.01em] text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51_/_18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none md:inline-flex"
