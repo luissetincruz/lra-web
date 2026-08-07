@@ -4,7 +4,7 @@
   color-scheme: light;
 
   /*
-   * Identidade visual clara
+   * Tema claro
    */
 
   --background: #ffffff;
@@ -23,40 +23,17 @@
   --light-border-strong: #cccccc;
 
   /*
-   * Footer reveal
-   *
-   * Reserva o espaço necessário para revelar o footer fixo
-   * quando o conteúdo principal chega ao final da página.
-   */
-
-  --footer-reveal-height: 24rem;
-
-  /*
-   * Identidade visual escura
-   *
-   * Esses tokens continuam sendo usados pelas seções inferiores
-   * enquanto testamos header e hero com fundo branco.
+   * Tema escuro usado nas seções de contraste.
    */
 
   --ink: #090909;
   --panel: #151515;
 
   /*
-   * Nomes mantidos temporariamente para evitar a refatoração
-   * de todos os componentes antes da aprovação visual.
-   *
-   * cyan  -> coral principal
-   * mint  -> coral claro
-   * lilac -> cinza quente
+   * Layout
    */
 
-  --cyan: #ff5733;
-  --mint: #ff8066;
-  --lilac: #d6d3d1;
-
-  --foreground: #fafafa;
-  --muted: #a3a3a3;
-  --border: #2a2a2a;
+  --footer-reveal-height: 24rem;
 }
 
 @theme inline {
@@ -86,14 +63,6 @@
   --color-ink: var(--ink);
   --color-panel: var(--panel);
 
-  --color-cyan: var(--cyan);
-  --color-mint: var(--mint);
-  --color-lilac: var(--lilac);
-
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-
   /*
    * Tipografia
    */
@@ -105,7 +74,6 @@
    * Sombras
    */
 
-  --shadow-glow: 0 0 60px rgb(255 87 51 / 18%);
   --shadow-card: 0 24px 80px rgb(0 0 0 / 32%);
   --shadow-card-light: 0 24px 80px rgb(15 23 42 / 12%);
 }
@@ -146,7 +114,7 @@ textarea {
 }
 
 /*
- * Grid usado no hero com fundo branco.
+ * Grid decorativo usado no hero.
  */
 
 .hero-grid-light {
@@ -159,7 +127,7 @@ textarea {
 }
 
 /*
- * Footer reveal responsivo
+ * Footer reveal responsivo.
  */
 
 @media (min-width: 640px) {
