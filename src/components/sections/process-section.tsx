@@ -56,7 +56,11 @@ const principles = [
 
 export function ProcessSection() {
   return (
-    <section id="como-trabalhamos" aria-labelledby="processo-title" className="py-20 sm:py-28">
+    <section
+      id="como-trabalhamos"
+      aria-labelledby="processo-title"
+      className="border-b border-white/10 bg-ink py-20 sm:py-28"
+    >
       <Container>
         <div className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <div>
@@ -67,15 +71,26 @@ export function ProcessSection() {
               description="O processo é organizado para reduzir incertezas, validar decisões cedo e manter o projeto conectado às necessidades reais da operação."
             />
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
               {principles.map((principle) => (
                 <div
                   key={principle.title}
-                  className="rounded-2xl border border-white/10 bg-white/2.5 p-5"
+                  className="rounded-2xl border border-white/10 bg-white/[0.035] p-5"
                 >
-                  <h3 className="font-bold text-white">{principle.title}</h3>
+                  <div className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+                    />
 
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{principle.description}</p>
+                    <div>
+                      <h3 className="font-semibold text-white">{principle.title}</h3>
+
+                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                        {principle.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -84,15 +99,15 @@ export function ProcessSection() {
           <ol className="relative space-y-5">
             <div
               aria-hidden="true"
-              className="absolute top-8 bottom-8 left-6 hidden w-px bg-linear-to-b from-cyan/60 via-lilac/50 to-mint/40 sm:block"
+              className="absolute top-8 bottom-8 left-6 hidden w-px bg-linear-to-b from-brand/60 via-brand/30 to-transparent sm:block"
             />
 
             {processSteps.map((step) => (
               <li
                 key={step.number}
-                className="relative rounded-3xl border border-white/10 bg-panel/70 p-6 shadow-card sm:grid sm:grid-cols-[auto_1fr] sm:gap-6 sm:p-7"
+                className="relative rounded-3xl border border-white/10 bg-panel/70 p-6 shadow-card transition-[border-color,background-color] duration-200 hover:border-brand/25 hover:bg-panel sm:grid sm:grid-cols-[auto_1fr] sm:gap-6 sm:p-7"
               >
-                <span className="relative z-10 grid h-12 w-12 place-items-center rounded-2xl border border-cyan/30 bg-ink font-mono text-xs font-black text-cyan">
+                <span className="relative z-10 grid h-12 w-12 place-items-center rounded-2xl border border-brand/30 bg-brand/10 font-mono text-xs font-bold text-brand">
                   {step.number}
                 </span>
 

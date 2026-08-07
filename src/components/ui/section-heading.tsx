@@ -20,13 +20,7 @@ export function SectionHeading({
 
   return (
     <div className={isCentered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p
-        className={`font-mono text-xs font-bold tracking-[0.2em] uppercase ${
-          isLight ? "text-brand" : "text-mint"
-        }`}
-      >
-        {eyebrow}
-      </p>
+      <p className="font-mono text-xs font-bold tracking-[0.2em] text-brand uppercase">{eyebrow}</p>
 
       <h2
         id={titleId}
