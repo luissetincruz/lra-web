@@ -12,22 +12,21 @@ const contactTopics = [
 
 export function ContactSection() {
   return (
-    <section id="contato" aria-labelledby="contato-title" className="py-20 sm:py-28">
+    <section
+      id="contato"
+      aria-labelledby="contato-title"
+      className="border-t border-white/10 bg-ink py-20 sm:py-28"
+    >
       <Container>
-        <div className="relative overflow-hidden rounded-4xl border border-cyan/20 bg-panel p-7 shadow-glow sm:p-10 lg:p-14">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-panel/80 p-7 shadow-card sm:p-10 lg:p-14">
           <div
             aria-hidden="true"
-            className="absolute -top-32 -right-24 h-80 w-80 rounded-full bg-cyan/10 blur-3xl"
+            className="pointer-events-none absolute -top-40 -right-24 h-96 w-96 rounded-full bg-brand/[0.08] blur-3xl"
           />
 
-          <div
-            aria-hidden="true"
-            className="absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-lilac/10 blur-3xl"
-          />
-
-          <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
+          <div className="relative grid items-end gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
             <div>
-              <p className="font-mono text-xs font-bold tracking-[0.2em] text-mint uppercase">
+              <p className="font-mono text-xs font-bold tracking-[0.2em] text-brand uppercase">
                 Vamos conversar
               </p>
 
@@ -38,7 +37,7 @@ export function ContactSection() {
                 Tem um processo que poderia funcionar melhor com software?
               </h2>
 
-              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg sm:leading-8">
                 Conte brevemente o cenário atual, o problema que deseja resolver e quais sistemas ou
                 pessoas participam do processo.
               </p>
@@ -55,12 +54,12 @@ export function ContactSection() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-3 lg:min-w-64">
+            <div className="flex flex-col items-stretch gap-3 lg:min-w-64">
               <Link
                 href="mailto:luiscruzdesign@gmail.com?subject=Projeto%20para%20a%20LRA%20Software"
-                className="inline-flex min-h-13 items-center justify-center rounded-xl bg-cyan px-6 text-center text-sm font-black text-ink transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-4 focus-visible:ring-offset-panel focus-visible:outline-none"
+                className="inline-flex min-h-13 items-center justify-center rounded-xl bg-brand px-6 text-center text-sm font-semibold text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51_/_18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-panel focus-visible:outline-none"
               >
-                Enviar uma mensagem
+                Falar sobre um projeto
               </Link>
 
               <p className="text-center text-xs leading-5 text-slate-500">
