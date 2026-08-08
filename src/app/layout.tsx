@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AnalyticsConsent } from "@/components/privacy/analytics-consent";
 
 import "./globals.css";
 
@@ -68,6 +69,8 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const googleTagManagerId = process.env.NEXT_PUBLIC_GTM_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,7 +78,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-screen bg-background font-sans text-text">{children}</body>
+      <body className="min-h-screen bg-background font-sans text-text">
+        {children}
+
+        <AnalyticsConsent gtmId={googleTagManagerId} />
+      </body>
     </html>
   );
 }
