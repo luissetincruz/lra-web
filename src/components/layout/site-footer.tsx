@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
+import { CookiePreferencesButton } from "@/components/privacy/cookie-preferences-button";
 
 const navigation = [
   { href: "#inicio", label: "Início" },
@@ -55,8 +56,10 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-10 border-t border-light-border pt-6 text-xs text-text-subtle">
+        <div className="mt-10 flex flex-col gap-3 border-t border-light-border pt-6 text-xs text-text-subtle sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} LRA Software. Todos os direitos reservados.</p>
+
+          <CookiePreferencesButton />
         </div>
       </Container>
     </footer>
