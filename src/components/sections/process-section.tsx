@@ -59,9 +59,30 @@ export function ProcessSection() {
     <section
       id="como-trabalhamos"
       aria-labelledby="processo-title"
-      className="border-b border-white/10 bg-ink py-20 sm:py-28"
+      className="relative isolate overflow-hidden border-b border-white/10 bg-ink py-20 sm:py-28"
     >
-      <Container>
+      <video
+        aria-hidden="true"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        tabIndex={-1}
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover saturate-75 motion-reduce:hidden"
+      >
+        <source
+          src="https://video-previews.elements.envatousercontent.com/8be1a6bd-4ad7-4823-8367-ef799610cf12/watermarked_preview/watermarked_preview.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(9,9,9,0.88)_0%,rgba(9,9,9,0.85)_40%,rgba(9,9,9,0.80)_100%)]"
+      />
+
+      <Container className="relative z-20">
         <div className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <div>
             <SectionHeading
