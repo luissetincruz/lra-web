@@ -1,3 +1,4 @@
+import { HomeStructuredData } from "@/components/seo/home-structured-data";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { AboutSection } from "@/components/sections/about-section";
@@ -8,32 +9,30 @@ import { ServicesSection } from "@/components/sections/services-section";
 
 export default function Home() {
   return (
-    <div className="relative isolate min-h-screen overflow-x-clip bg-ink">
-      {" "}
+    <div className="relative min-h-screen overflow-x-clip bg-background">
+      <HomeStructuredData />
       <a
         href="#conteudo"
-        className="sr-only z-100 rounded-lg bg-white px-4 py-3 font-bold text-ink focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+        className="sr-only z-100 rounded-lg bg-brand px-4 py-3 font-semibold text-text focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
       >
         Pular para o conteúdo
       </a>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 bg-ink" />
-      <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0 -z-10" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -left-32 -z-10 h-96 w-96 rounded-full bg-cyan/10 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-64 -right-40 -z-10 h-120 w-120 rounded-full bg-lilac/10 blur-3xl"
-      />
+
       <SiteHeader />
-      <main id="conteudo">
+
+      <main
+        id="conteudo"
+        className="relative z-10 bg-background shadow-[0_24px_60px_rgb(0_0_0/18%)]"
+      >
         <HeroSection />
         <ServicesSection />
         <ProcessSection />
         <AboutSection />
         <ContactSection />
       </main>
+
+      <div aria-hidden="true" className="h-(--footer-reveal-height)" />
+
       <SiteFooter />
     </div>
   );

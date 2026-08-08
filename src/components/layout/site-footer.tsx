@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
@@ -14,38 +15,37 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 py-10">
-      <Container>
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-3 rounded-lg focus-visible:ring-2 focus-visible:ring-cyan focus-visible:outline-none"
-              aria-label="LRA Software — página inicial"
-            >
-              <span
-                aria-hidden="true"
-                className="grid h-10 w-10 place-items-center rounded-xl border border-cyan/30 bg-cyan/10 text-xs font-black text-cyan"
-              >
-                LRA
-              </span>
+    <footer className="fixed inset-x-0 bottom-0 z-0 h-(--footer-reveal-height) border-t border-light-border bg-background py-8">
+      <Container className="flex h-full flex-col justify-between">
+        <div className="grid gap-y-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:grid-rows-[auto_auto] lg:gap-x-12 lg:gap-y-4">
+          <Link
+            href="#inicio"
+            className="inline-flex w-fit rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:col-start-1 lg:row-start-1"
+            aria-label="LRA Software — página inicial"
+          >
+            <Image
+              src="/lra-logo.svg"
+              alt="LRA Software"
+              width={160}
+              height={71}
+              className="h-10 w-auto"
+            />
+          </Link>
 
-              <span className="font-semibold text-white">LRA Software</span>
-            </Link>
+          <p className="max-w-md text-sm leading-6 text-text-muted lg:col-start-1 lg:row-start-2">
+            Sistemas, automações, integrações e inteligência artificial aplicados a operações reais.
+          </p>
 
-            <p className="mt-4 max-w-md text-sm leading-6 text-slate-500">
-              Sistemas, automações, integrações e inteligência artificial aplicados a operações
-              reais.
-            </p>
-          </div>
-
-          <nav aria-label="Navegação do rodapé">
+          <nav
+            aria-label="Navegação do rodapé"
+            className="lg:col-start-2 lg:row-start-2 lg:self-start"
+          >
             <ul className="flex flex-wrap gap-x-6 gap-y-3">
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-cyan focus-visible:outline-none"
+                    className="relative rounded-md text-sm leading-6 font-medium text-text transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-[width] after:duration-200 after:content-[''] hover:text-brand hover:after:w-full focus-visible:text-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none focus-visible:after:w-full"
                   >
                     {item.label}
                   </Link>
@@ -55,10 +55,8 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 border-t border-light-border pt-6 text-xs text-text-subtle">
           <p>© {currentYear} LRA Software. Todos os direitos reservados.</p>
-
-          <p>Desenvolvido com Next.js, TypeScript e Tailwind CSS.</p>
         </div>
       </Container>
     </footer>
