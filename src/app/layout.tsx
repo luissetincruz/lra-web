@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "./globals.css";
 
@@ -68,6 +69,8 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const googleTagManagerId = process.env.NEXT_PUBLIC_GTM_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,6 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      {googleTagManagerId ? <GoogleTagManager gtmId={googleTagManagerId} /> : null}
       <body className="min-h-screen bg-background font-sans text-text">{children}</body>
     </html>
   );
