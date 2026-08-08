@@ -40,7 +40,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-md text-sm font-medium text-text-muted transition-colors hover:text-text focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
+                className="relative rounded-md text-sm font-medium text-text-muted transition-colors duration-200 after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-[width] after:duration-200 after:content-[''] hover:text-text hover:after:w-full focus-visible:text-text focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none focus-visible:after:w-full"
               >
                 {item.label}
               </Link>

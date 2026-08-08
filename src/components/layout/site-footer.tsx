@@ -45,7 +45,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-md text-sm leading-6 font-medium text-text transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
+                    className="relative rounded-md text-sm leading-6 font-medium text-text transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-brand after:transition-[width] after:duration-200 after:content-[''] hover:text-brand hover:after:w-full focus-visible:text-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none focus-visible:after:w-full"
                   >
                     {item.label}
                   </Link>
