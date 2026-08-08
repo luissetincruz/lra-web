@@ -51,7 +51,7 @@ export function ServicesSection() {
     <section
       id="servicos"
       aria-labelledby="servicos-title"
-      className="border-y border-white/10 bg-white/2 py-20 sm:py-28"
+      className="border-y border-light-border bg-surface py-20 sm:py-28"
     >
       <Container>
         <SectionHeading
@@ -59,35 +59,30 @@ export function ServicesSection() {
           eyebrow="Serviços"
           title="Soluções técnicas conectadas ao problema real da empresa."
           description="A LRA atua desde o entendimento da operação até o desenvolvimento, integração, implantação e evolução da solução."
+          tone="light"
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {services.map((service) => (
             <article
               key={service.code}
-              className="group flex min-h-full flex-col rounded-3xl border border-white/10 bg-panel/60 p-6 shadow-card transition-colors hover:border-cyan/30 hover:bg-panel sm:p-7"
+              className="flex min-h-full flex-col rounded-3xl border border-light-border bg-background p-6 shadow-card-light transition-[border-color,box-shadow] duration-200 hover:border-brand/30 hover:shadow-[0_20px_60px_rgb(15_23_42/10%)] sm:p-7"
             >
-              <div className="flex items-center justify-between gap-4">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl border border-cyan/20 bg-cyan/10 font-mono text-xs font-black text-cyan">
-                  {service.code}
-                </span>
+              <span className="grid h-12 w-12 place-items-center rounded-2xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand">
+                {service.code}
+              </span>
 
-                <span
-                  aria-hidden="true"
-                  className="text-xl text-slate-600 transition-colors group-hover:text-cyan"
-                >
-                  ↗
-                </span>
-              </div>
+              <h3 className="mt-7 text-xl font-bold tracking-tight text-text">{service.title}</h3>
 
-              <h3 className="mt-7 text-xl font-bold tracking-tight text-white">{service.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-6 text-text-muted">{service.description}</p>
 
-              <p className="mt-3 flex-1 text-sm leading-6 text-slate-400">{service.description}</p>
-
-              <ul className="mt-6 space-y-2 border-t border-white/10 pt-5">
+              <ul className="mt-6 space-y-2 border-t border-light-border pt-5">
                 {service.capabilities.map((capability) => (
-                  <li key={capability} className="flex items-center gap-2.5 text-sm text-slate-300">
-                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-mint" />
+                  <li
+                    key={capability}
+                    className="flex items-center gap-2.5 text-sm font-medium text-text-muted"
+                  >
+                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand" />
 
                     {capability}
                   </li>

@@ -1,46 +1,99 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --ink: #07111f;
-  --panel: #0b1728;
-  --cyan: #45d6e7;
-  --mint: #73e8c6;
-  --lilac: #a9a6ff;
-  --foreground: #f8fafc;
-  --muted: #94a3b8;
+  /*
+   * Tema claro
+   */
+
+  --background: #ffffff;
+  --surface: #f7f7f5;
+  --surface-strong: #efeeeb;
+
+  --text: #111111;
+  --text-muted: #4f4f4f;
+  --text-subtle: #737373;
+
+  --brand: #ff5733;
+  --brand-hover: #e84727;
+  --brand-soft: #fff0ec;
+
+  --light-border: #e5e5e5;
+  --light-border-strong: #cccccc;
+
+  /*
+   * Tema escuro usado nas seções de contraste.
+   */
+
+  --ink: #090909;
+  --panel: #151515;
+
+  /*
+   * Layout
+   */
+
+  --footer-reveal-height: 24rem;
 }
 
 @theme inline {
+  /*
+   * Tema claro
+   */
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+
+  --color-light-border: var(--light-border);
+  --color-light-border-strong: var(--light-border-strong);
+
+  /*
+   * Tema escuro
+   */
+
   --color-ink: var(--ink);
   --color-panel: var(--panel);
-  --color-cyan: var(--cyan);
-  --color-mint: var(--mint);
-  --color-lilac: var(--lilac);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
+
+  /*
+   * Tipografia
+   */
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --shadow-glow: 0 0 60px rgb(69 214 231 / 16%);
-  --shadow-card: 0 24px 80px rgb(0 0 0 / 26%);
+  /*
+   * Sombras
+   */
+
+  --shadow-card: 0 24px 80px rgb(0 0 0 / 32%);
+  --shadow-card-light: 0 24px 80px rgb(15 23 42 / 12%);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background: var(--ink);
-  color: var(--foreground);
+  background: var(--background);
+  color: var(--text);
 }
 
 a {
@@ -56,14 +109,41 @@ textarea {
 }
 
 ::selection {
-  background: rgb(69 214 231 / 30%);
-  color: #ffffff;
+  background: rgb(255 87 51 / 28%);
+  color: #111111;
 }
 
-.hero-grid {
+/*
+ * Grid decorativo usado no hero.
+ */
+
+.hero-grid-light {
   background-image:
-    linear-gradient(rgb(255 255 255 / 3.5%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 3.5%) 1px, transparent 1px);
+    linear-gradient(rgb(0 0 0 / 2.8%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 0 0 / 2.8%) 1px, transparent 1px);
   background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 86%);
+  mask-image: linear-gradient(to bottom, black, transparent 86%);
+}
+
+/*
+ * Footer reveal responsivo.
+ */
+
+@media (min-width: 640px) {
+  :root {
+    --footer-reveal-height: 21rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --footer-reveal-height: 16rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
