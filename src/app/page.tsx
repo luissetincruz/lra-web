@@ -1,3 +1,4 @@
+import { HomeStructuredData } from "@/components/seo/home-structured-data";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { AboutSection } from "@/components/sections/about-section";
@@ -9,6 +10,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background">
+      <HomeStructuredData />
       <a
         href="#conteudo"
         className="sr-only z-100 rounded-lg bg-brand px-4 py-3 font-semibold text-text focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
