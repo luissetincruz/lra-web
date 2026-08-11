@@ -3,16 +3,14 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
 import { CookiePreferencesButton } from "@/components/privacy/cookie-preferences-button";
+import type { HomeDictionary } from "@/i18n/types";
 
-const navigation = [
-  { href: "#inicio", label: "Início" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#como-trabalhamos", label: "Como trabalhamos" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#contato", label: "Contato" },
-];
+type SiteFooterProps = Readonly<{
+  content: HomeDictionary["footer"];
+  cookiePreferencesLabel: string;
+}>;
 
-export function SiteFooter() {
+export function SiteFooter({ content, cookiePreferencesLabel }: SiteFooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -22,7 +20,7 @@ export function SiteFooter() {
           <Link
             href="#inicio"
             className="inline-flex w-fit rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:col-start-1 lg:row-start-1"
-            aria-label="LRA Software — página inicial"
+            aria-label={content.homeAriaLabel}
           >
             <Image
               src="/lra-logo.svg"
@@ -34,15 +32,15 @@ export function SiteFooter() {
           </Link>
 
           <p className="max-w-md text-sm leading-6 text-text-muted lg:col-start-1 lg:row-start-2">
-            Sistemas, automações, integrações e inteligência artificial aplicados a operações reais.
+            {content.description}
           </p>
 
           <nav
-            aria-label="Navegação do rodapé"
+            aria-label={content.navigationAriaLabel}
             className="lg:col-start-2 lg:row-start-2 lg:self-start"
           >
             <ul className="flex flex-wrap gap-x-6 gap-y-3">
-              {navigation.map((item) => (
+              {content.navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -57,9 +55,11 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-light-border pt-6 text-xs text-text-subtle sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} LRA Software. Todos os direitos reservados.</p>
+          <p>
+            © {currentYear} LRA Software. {content.copyright}
+          </p>
 
-          <CookiePreferencesButton />
+          <CookiePreferencesButton label={cookiePreferencesLabel} />
         </div>
       </Container>
     </footer>

@@ -6,34 +6,41 @@ import { ContactSection } from "@/components/sections/contact-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { ptBR } from "@/dictionaries/pt-BR";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background">
-      <HomeStructuredData />
+      <HomeStructuredData
+        locale="pt-BR"
+        path="/"
+        title="LRA Software — Sistemas, automações e IA para empresas"
+        description="A LRA Software desenvolve sistemas sob medida, automações, integrações e soluções com inteligência artificial para empresas."
+      />
+
       <a
         href="#conteudo"
         className="sr-only z-100 rounded-lg bg-brand px-4 py-3 font-semibold text-text focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
       >
-        Pular para o conteúdo
+        {ptBR.page.skipToContent}
       </a>
 
-      <SiteHeader />
+      <SiteHeader content={ptBR.header} locale="pt-BR" />
 
       <main
         id="conteudo"
         className="relative z-10 bg-background shadow-[0_24px_60px_rgb(0_0_0/18%)]"
       >
-        <HeroSection />
-        <ServicesSection />
-        <ProcessSection />
-        <AboutSection />
-        <ContactSection />
+        <HeroSection content={ptBR.hero} />
+        <ServicesSection content={ptBR.services} />
+        <ProcessSection content={ptBR.process} />
+        <AboutSection content={ptBR.about} />
+        <ContactSection content={ptBR.contact} />
       </main>
 
       <div aria-hidden="true" className="h-(--footer-reveal-height)" />
 
-      <SiteFooter />
+      <SiteFooter content={ptBR.footer} cookiePreferencesLabel={ptBR.privacy.preferencesButton} />
     </div>
   );
 }

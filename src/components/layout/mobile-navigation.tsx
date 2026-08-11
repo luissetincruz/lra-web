@@ -3,16 +3,28 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-type NavigationItem = Readonly<{
-  href: string;
-  label: string;
-}>;
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import type { Locale, NavigationItem } from "@/i18n/types";
 
 type MobileNavigationProps = Readonly<{
   items: readonly NavigationItem[];
+  projectCta: string;
+  openMenuLabel: string;
+  closeMenuLabel: string;
+  navigationAriaLabel: string;
+  languageSwitcherAriaLabel: string;
+  locale: Locale;
 }>;
 
-export function MobileNavigation({ items }: MobileNavigationProps) {
+export function MobileNavigation({
+  items,
+  projectCta,
+  openMenuLabel,
+  closeMenuLabel,
+  navigationAriaLabel,
+  languageSwitcherAriaLabel,
+  locale,
+}: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -63,7 +75,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         ref={buttonRef}
         type="button"
         className="grid h-11 w-11 place-items-center rounded-xl border border-light-border bg-surface text-text transition-colors hover:border-light-border-strong hover:bg-surface-strong focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none md:hidden"
-        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+        aria-label={isOpen ? closeMenuLabel : openMenuLabel}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
         onClick={toggleMenu}
@@ -100,7 +112,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         }`}
       >
         <nav
-          aria-label="Navegação mobile"
+          aria-label={navigationAriaLabel}
           className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-2"
         >
           {items.map((item) => (
@@ -114,12 +126,16 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
             </Link>
           ))}
 
+          <div className="mt-3 border-t border-light-border pt-5">
+            <LanguageSwitcher locale={locale} ariaLabel={languageSwitcherAriaLabel} />
+          </div>
+
           <Link
             href="#contato"
             onClick={closeMenu}
             className="mt-3 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 text-sm font-semibold text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51/18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none"
           >
-            Falar sobre um projeto
+            {projectCta}
           </Link>
         </nav>
       </div>

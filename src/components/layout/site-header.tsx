@@ -3,14 +3,15 @@ import Link from "next/link";
 
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { Container } from "@/components/ui/container";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import type { HomeDictionary, Locale } from "@/i18n/types";
 
-const navigation = [
-  { href: "#servicos", label: "Serviços" },
-  { href: "#como-trabalhamos", label: "Como trabalhamos" },
-  { href: "#sobre", label: "Sobre" },
-] as const;
+type SiteHeaderProps = Readonly<{
+  content: HomeDictionary["header"];
+  locale: Locale;
+}>;
 
-export function SiteHeader() {
+export function SiteHeader({ content, locale }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 isolate z-50 border-b border-black/5">
       <div
@@ -22,7 +23,7 @@ export function SiteHeader() {
         <Link
           href="#inicio"
           className="flex items-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-          aria-label="LRA Software — página inicial"
+          aria-label={content.homeAriaLabel}
         >
           <Image
             src="/lra-logo.svg"
@@ -35,8 +36,11 @@ export function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-8">
-          <nav aria-label="Navegação principal" className="hidden items-center gap-8 md:flex">
-            {navigation.map((item) => (
+          <nav
+            aria-label={content.navigationAriaLabel}
+            className="hidden items-center gap-8 md:flex"
+          >
+            {content.navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -51,10 +55,24 @@ export function SiteHeader() {
             href="#contato"
             className="hidden min-h-11 items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold tracking-[-0.01em] text-text transition-[background-color,box-shadow] duration-200 hover:bg-brand-hover hover:shadow-[0_8px_24px_rgb(255_87_51/18%)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none md:inline-flex"
           >
-            Falar sobre um projeto
+            {content.projectCta}
           </Link>
 
-          <MobileNavigation items={navigation} />
+          <LanguageSwitcher
+            locale={locale}
+            ariaLabel={content.languageSwitcherAriaLabel}
+            className="hidden md:inline-flex"
+          />
+
+          <MobileNavigation
+            items={content.navigation}
+            projectCta={content.projectCta}
+            openMenuLabel={content.mobile.openMenuLabel}
+            closeMenuLabel={content.mobile.closeMenuLabel}
+            navigationAriaLabel={content.mobile.navigationAriaLabel}
+            languageSwitcherAriaLabel={content.languageSwitcherAriaLabel}
+            locale={locale}
+          />
         </div>
       </Container>
     </header>
