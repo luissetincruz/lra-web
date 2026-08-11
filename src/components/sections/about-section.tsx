@@ -1,40 +1,12 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import type { HomeDictionary } from "@/i18n/types";
 
-const capabilities = [
-  {
-    title: "Visão de ponta a ponta",
-    description:
-      "Análise do problema, experiência do usuário, desenvolvimento, integrações, infraestrutura e publicação.",
-  },
-  {
-    title: "Experiência com sistemas reais",
-    description:
-      "Projetos construídos e evoluídos considerando operação, usuários, regras de negócio e manutenção.",
-  },
-  {
-    title: "Tecnologia com propósito",
-    description:
-      "As decisões técnicas partem do problema que precisa ser resolvido, não apenas das ferramentas disponíveis.",
-  },
-];
+type AboutSectionProps = Readonly<{
+  content: HomeDictionary["about"];
+}>;
 
-const technologies = [
-  "Node.js",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Vue.js",
-  "Laravel",
-  "PostgreSQL",
-  "MongoDB",
-  "Docker",
-  "AWS",
-  "n8n",
-  "OpenAI",
-];
-
-export function AboutSection() {
+export function AboutSection({ content }: AboutSectionProps) {
   return (
     <section
       id="sobre"
@@ -46,23 +18,18 @@ export function AboutSection() {
           <div>
             <SectionHeading
               titleId="sobre-title"
-              eyebrow="Sobre a LRA"
-              title="Desenvolvimento, integração e visão de produto no mesmo projeto."
-              description="A LRA Software desenvolve soluções digitais para empresas que precisam organizar processos, conectar sistemas e transformar necessidades operacionais em software funcional."
+              eyebrow={content.eyebrow}
+              title={content.title}
+              description={content.description}
               tone="light"
             />
 
             <p className="mt-7 max-w-3xl text-base leading-7 text-text-muted sm:text-lg sm:leading-8">
-              A atuação combina desenvolvimento front-end e back-end, bancos de dados, APIs,
-              automações, infraestrutura cloud e inteligência artificial. Isso permite acompanhar o
-              projeto desde a definição do problema até sua entrada em produção.
+              {content.descriptionSecondary}
             </p>
 
-            <div
-              className="mt-10 flex flex-wrap gap-2"
-              aria-label="Tecnologias utilizadas pela LRA"
-            >
-              {technologies.map((technology) => (
+            <div className="mt-10 flex flex-wrap gap-2" aria-label={content.technologiesAriaLabel}>
+              {content.technologies.map((technology) => (
                 <span
                   key={technology}
                   className="rounded-xl border border-light-border bg-surface px-3.5 py-2 font-mono text-xs font-medium text-text-muted"
@@ -74,7 +41,7 @@ export function AboutSection() {
           </div>
 
           <div className="overflow-hidden rounded-4xl border border-light-border bg-surface shadow-card-light">
-            {capabilities.map((capability, index) => (
+            {content.capabilities.map((capability, index) => (
               <article
                 key={capability.title}
                 className="border-b border-light-border p-6 last:border-b-0 sm:p-7"
