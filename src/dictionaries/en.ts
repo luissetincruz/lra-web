@@ -219,6 +219,16 @@ export const en = {
     emailHint: "Your email application will open to send the message.",
   },
 
+  privacy: {
+    dialogAriaLabel: "Cookie preferences",
+    title: "Cookies and privacy",
+    description:
+      "We use analytics cookies to understand how the site is used and improve your experience. You can accept analytics or continue using only the necessary features.",
+    reject: "Reject",
+    accept: "Accept",
+    preferencesButton: "Cookie preferences",
+  },
+
   footer: {
     homeAriaLabel: "LRA Software — home page",
     description:

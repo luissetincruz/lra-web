@@ -35,7 +35,7 @@ export default function Home() {
 
       <div aria-hidden="true" className="h-(--footer-reveal-height)" />
 
-      <SiteFooter content={ptBR.footer} />
+      <SiteFooter content={ptBR.footer} cookiePreferencesLabel={ptBR.privacy.preferencesButton} />
     </div>
   );
 }

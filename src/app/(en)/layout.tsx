@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
+import { en } from "@/dictionaries/en";
 import { AnalyticsConsent } from "@/components/privacy/analytics-consent";
 
 import "../globals.css";
@@ -82,7 +82,7 @@ export default function EnglishRootLayout({
       <body className="min-h-screen bg-background font-sans text-text">
         {children}
 
-        <AnalyticsConsent gtmId={googleTagManagerId} />
+        <AnalyticsConsent gtmId={googleTagManagerId} content={en.privacy} />
       </body>
     </html>
   );

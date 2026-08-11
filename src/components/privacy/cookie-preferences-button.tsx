@@ -2,7 +2,11 @@
 
 import { CONSENT_OPEN_EVENT } from "@/components/privacy/analytics-consent";
 
-export function CookiePreferencesButton() {
+type CookiePreferencesButtonProps = Readonly<{
+  label: string;
+}>;
+
+export function CookiePreferencesButton({ label }: CookiePreferencesButtonProps) {
   function openPreferences() {
     window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
   }
@@ -13,7 +17,7 @@ export function CookiePreferencesButton() {
       onClick={openPreferences}
       className="text-left text-xs text-text-subtle transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
     >
-      Preferências de cookies
+      {label}
     </button>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AnalyticsConsent } from "@/components/privacy/analytics-consent";
+import { ptBR } from "@/dictionaries/pt-BR";
 
 import "../globals.css";
 
@@ -81,7 +82,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans text-text">
         {children}
 
-        <AnalyticsConsent gtmId={googleTagManagerId} />
+        <AnalyticsConsent gtmId={googleTagManagerId} content={ptBR.privacy} />
       </body>
     </html>
   );

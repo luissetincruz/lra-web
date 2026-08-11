@@ -7,9 +7,10 @@ import type { HomeDictionary } from "@/i18n/types";
 
 type SiteFooterProps = Readonly<{
   content: HomeDictionary["footer"];
+  cookiePreferencesLabel: string;
 }>;
 
-export function SiteFooter({ content }: SiteFooterProps) {
+export function SiteFooter({ content, cookiePreferencesLabel }: SiteFooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -58,7 +59,7 @@ export function SiteFooter({ content }: SiteFooterProps) {
             © {currentYear} LRA Software. {content.copyright}
           </p>
 
-          <CookiePreferencesButton />
+          <CookiePreferencesButton label={cookiePreferencesLabel} />
         </div>
       </Container>
     </footer>

@@ -223,6 +223,16 @@ export const ptBR = {
     emailHint: "O contato será aberto no seu aplicativo de e-mail.",
   },
 
+  privacy: {
+    dialogAriaLabel: "Preferências de cookies",
+    title: "Cookies e privacidade",
+    description:
+      "Usamos cookies analíticos para entender como o site é utilizado e melhorar sua experiência. Você pode aceitar ou continuar apenas com os recursos necessários.",
+    reject: "Rejeitar",
+    accept: "Aceitar",
+    preferencesButton: "Preferências de cookies",
+  },
+
   footer: {
     homeAriaLabel: "LRA Software — página inicial",
     description:

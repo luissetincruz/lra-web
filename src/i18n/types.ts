@@ -93,6 +93,15 @@ export type HomeDictionary = Readonly<{
     emailHint: string;
   };
 
+  privacy: {
+    dialogAriaLabel: string;
+    title: string;
+    description: string;
+    reject: string;
+    accept: string;
+    preferencesButton: string;
+  };
+
   footer: {
     homeAriaLabel: string;
     description: string;

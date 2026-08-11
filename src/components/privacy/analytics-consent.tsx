@@ -3,12 +3,19 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { GoogleTagManager } from "@next/third-parties/google";
 
+import type { HomeDictionary } from "@/i18n/types";
+
 const CONSENT_STORAGE_KEY = "lra_analytics_consent";
 const CONSENT_CHANGE_EVENT = "lra-analytics-consent-change";
 
 export const CONSENT_OPEN_EVENT = "lra-analytics-consent-open";
 
 type ConsentChoice = "granted" | "denied" | null | undefined;
+
+type AnalyticsConsentProps = Readonly<{
+  gtmId?: string;
+  content: HomeDictionary["privacy"];
+}>;
 
 function getConsentSnapshot(): ConsentChoice {
   const storedConsent = window.localStorage.getItem(CONSENT_STORAGE_KEY);
@@ -73,7 +80,7 @@ function clearAnalyticsCookies() {
   }
 }
 
-export function AnalyticsConsent({ gtmId }: { gtmId?: string }) {
+export function AnalyticsConsent({ gtmId, content }: AnalyticsConsentProps) {
   const consent = useSyncExternalStore(
     subscribeToConsent,
     getConsentSnapshot,
@@ -118,17 +125,14 @@ export function AnalyticsConsent({ gtmId }: { gtmId?: string }) {
       {consent === null || preferencesOpen ? (
         <div
           role="dialog"
-          aria-label="Preferências de cookies"
+          aria-label={content.dialogAriaLabel}
           className="fixed right-4 bottom-4 left-4 z-100 mx-auto max-w-3xl rounded-2xl border border-light-border bg-background p-5 shadow-card-light sm:p-6"
         >
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-xl">
-              <p className="font-semibold text-text">Cookies e privacidade</p>
+              <p className="font-semibold text-text">{content.title}</p>
 
-              <p className="mt-2 text-sm leading-6 text-text-muted">
-                Usamos cookies analíticos para entender como o site é utilizado e melhorar sua
-                experiência. Você pode aceitar ou continuar apenas com os recursos necessários.
-              </p>
+              <p className="mt-2 text-sm leading-6 text-text-muted">{content.description}</p>
             </div>
 
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
@@ -137,7 +141,7 @@ export function AnalyticsConsent({ gtmId }: { gtmId?: string }) {
                 onClick={rejectAnalytics}
                 className="min-h-11 rounded-xl border border-light-border-strong bg-background px-5 text-sm font-medium text-text transition-colors hover:bg-surface focus-visible:ring-2 focus-visible:ring-text focus-visible:outline-none"
               >
-                Rejeitar
+                {content.reject}
               </button>
 
               <button
@@ -145,7 +149,7 @@ export function AnalyticsConsent({ gtmId }: { gtmId?: string }) {
                 onClick={acceptAnalytics}
                 className="min-h-11 rounded-xl bg-brand px-5 text-sm font-semibold text-text transition-colors hover:bg-brand-hover focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none"
               >
-                Aceitar
+                {content.accept}
               </button>
             </div>
           </div>

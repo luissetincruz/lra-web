@@ -32,7 +32,7 @@ export default function EnglishHome() {
 
       <div aria-hidden="true" className="h-(--footer-reveal-height)" />
 
-      <SiteFooter content={en.footer} />
+      <SiteFooter content={en.footer} cookiePreferencesLabel={en.privacy.preferencesButton} />
     </div>
   );
 }
