@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { GoogleTagManager } from "@next/third-parties/google";
-
 import type { HomeDictionary } from "@/i18n/types";
+import { WebVitalsReporter } from "@/components/analytics/web-vitals-reporter";
 
 const CONSENT_STORAGE_KEY = "lra_analytics_consent";
 const CONSENT_CHANGE_EVENT = "lra-analytics-consent-change";
@@ -120,7 +120,12 @@ export function AnalyticsConsent({ gtmId, content }: AnalyticsConsentProps) {
 
   return (
     <>
-      {consent === "granted" && gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
+      {consent === "granted" && gtmId ? (
+        <>
+          <GoogleTagManager gtmId={gtmId} />
+          <WebVitalsReporter />
+        </>
+      ) : null}
 
       {consent === null || preferencesOpen ? (
         <div
