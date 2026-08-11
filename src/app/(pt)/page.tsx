@@ -11,7 +11,12 @@ import { ptBR } from "@/dictionaries/pt-BR";
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background">
-      <HomeStructuredData />
+      <HomeStructuredData
+        locale="pt-BR"
+        path="/"
+        title="LRA Software — Sistemas, automações e IA para empresas"
+        description="A LRA Software desenvolve sistemas sob medida, automações, integrações e soluções com inteligência artificial para empresas."
+      />
 
       <a
         href="#conteudo"

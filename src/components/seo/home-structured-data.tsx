@@ -1,34 +1,54 @@
+import type { Locale } from "@/i18n/types";
+
 const siteUrl = "https://www.lrasoftware.com";
 
-const description =
-  "A LRA Software desenvolve sistemas sob medida, automações, integrações e soluções com inteligência artificial para empresas.";
+type HomeStructuredDataProps = Readonly<{
+  locale: Locale;
+  title: string;
+  description: string;
+  path: "/" | "/en";
+}>;
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      name: "LRA Software",
-      url: `${siteUrl}/`,
-      logo: `${siteUrl}/lra-logo.svg`,
-      description,
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: `${siteUrl}/`,
-      name: "LRA Software",
-      description,
-      publisher: {
+export function HomeStructuredData({ locale, title, description, path }: HomeStructuredDataProps) {
+  const pageUrl = path === "/" ? `${siteUrl}/` : `${siteUrl}${path}`;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
+        name: "LRA Software",
+        url: `${siteUrl}/`,
+        logo: `${siteUrl}/lra-logo.svg`,
       },
-      inLanguage: "pt-BR",
-    },
-  ],
-};
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: `${siteUrl}/`,
+        name: "LRA Software",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        inLanguage: ["pt-BR", "en"],
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: title,
+        description,
+        inLanguage: locale,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        about: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
+    ],
+  };
 
-export function HomeStructuredData() {
   return (
     <script
       type="application/ld+json"
