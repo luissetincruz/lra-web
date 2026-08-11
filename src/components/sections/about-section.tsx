@@ -47,7 +47,7 @@ export function AboutSection({ content }: AboutSectionProps) {
                 className="border-b border-light-border p-6 last:border-b-0 sm:p-7"
               >
                 <div className="flex items-start gap-5">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand-text">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 

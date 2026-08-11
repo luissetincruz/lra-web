@@ -8,7 +8,7 @@ type ContactSectionProps = Readonly<{
 }>;
 
 export function ContactSection({ content }: ContactSectionProps) {
-  const emailHref = `mailto:luiscruzdesign@gmail.com?subject=${encodeURIComponent(
+  const emailHref = `mailto:contato@lrasoftware.com?subject=${encodeURIComponent(
     content.emailSubject,
   )}`;
 
@@ -62,7 +62,7 @@ export function ContactSection({ content }: ContactSectionProps) {
                 {content.projectCta}
               </Link>
 
-              <p className="text-center text-xs leading-5 text-slate-500">{content.emailHint}</p>
+              <p className="text-center text-xs leading-5 text-slate-400">{content.emailHint}</p>
             </div>
           </div>
         </div>
