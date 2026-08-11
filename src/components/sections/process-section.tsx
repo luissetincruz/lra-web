@@ -1,60 +1,12 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import type { HomeDictionary } from "@/i18n/types";
 
-const processSteps = [
-  {
-    number: "01",
-    title: "Diagnóstico e definição",
-    description:
-      "Começamos entendendo o processo atual, os usuários envolvidos, as regras de negócio e os sistemas que precisam conversar entre si.",
-    deliverables: [
-      "Levantamento do problema",
-      "Definição do escopo inicial",
-      "Priorização das entregas",
-    ],
-  },
-  {
-    number: "02",
-    title: "Desenvolvimento e validação",
-    description:
-      "A solução é construída em etapas, permitindo validar decisões técnicas e funcionais antes de avançar para partes mais complexas.",
-    deliverables: [
-      "Implementação incremental",
-      "Validação técnica e funcional",
-      "Integrações e testes",
-    ],
-  },
-  {
-    number: "03",
-    title: "Implantação e evolução",
-    description:
-      "Depois da entrada em produção, acompanhamos o comportamento real da solução e identificamos ajustes e oportunidades de evolução.",
-    deliverables: ["Deploy e configuração", "Acompanhamento inicial", "Manutenção e evolução"],
-  },
-];
+type ProcessSectionProps = Readonly<{
+  content: HomeDictionary["process"];
+}>;
 
-const principles = [
-  {
-    title: "Comunicação direta",
-    description: "Decisões, limitações e riscos são apresentados de forma clara durante o projeto.",
-  },
-  {
-    title: "Entrega incremental",
-    description: "Projetos são divididos em etapas úteis, evitando longos períodos sem validação.",
-  },
-  {
-    title: "Visão de operação",
-    description:
-      "A tecnologia é pensada considerando pessoas, processos, infraestrutura e manutenção.",
-  },
-  {
-    title: "Simplicidade técnica",
-    description:
-      "A solução deve ser tão simples quanto possível, sem comprometer segurança e evolução.",
-  },
-];
-
-export function ProcessSection() {
+export function ProcessSection({ content }: ProcessSectionProps) {
   return (
     <section
       id="como-trabalhamos"
@@ -66,13 +18,13 @@ export function ProcessSection() {
           <div>
             <SectionHeading
               titleId="processo-title"
-              eyebrow="Como trabalhamos"
-              title="Do entendimento do problema à solução em produção."
-              description="O processo é organizado para reduzir incertezas, validar decisões cedo e manter o projeto conectado às necessidades reais da operação."
+              eyebrow={content.eyebrow}
+              title={content.title}
+              description={content.description}
             />
 
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              {principles.map((principle) => (
+              {content.principles.map((principle) => (
                 <div
                   key={principle.title}
                   className="rounded-2xl border border-white/10 bg-white/[0.035] p-5"
@@ -102,7 +54,7 @@ export function ProcessSection() {
               className="absolute top-8 bottom-8 left-6 hidden w-px bg-linear-to-b from-brand/60 via-brand/30 to-transparent sm:block"
             />
 
-            {processSteps.map((step) => (
+            {content.steps.map((step) => (
               <li
                 key={step.number}
                 className="relative rounded-3xl border border-white/10 bg-panel/70 p-6 shadow-card transition-[border-color,background-color] duration-200 hover:border-brand/25 hover:bg-panel sm:grid sm:grid-cols-[auto_1fr] sm:gap-6 sm:p-7"
