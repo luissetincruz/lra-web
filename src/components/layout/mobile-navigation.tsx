@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-import type { NavigationItem } from "@/i18n/types";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import type { Locale, NavigationItem } from "@/i18n/types";
 
 type MobileNavigationProps = Readonly<{
   items: readonly NavigationItem[];
@@ -11,6 +12,8 @@ type MobileNavigationProps = Readonly<{
   openMenuLabel: string;
   closeMenuLabel: string;
   navigationAriaLabel: string;
+  languageSwitcherAriaLabel: string;
+  locale: Locale;
 }>;
 
 export function MobileNavigation({
@@ -19,6 +22,8 @@ export function MobileNavigation({
   openMenuLabel,
   closeMenuLabel,
   navigationAriaLabel,
+  languageSwitcherAriaLabel,
+  locale,
 }: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -120,6 +125,10 @@ export function MobileNavigation({
               {item.label}
             </Link>
           ))}
+
+          <div className="mt-3 border-t border-light-border pt-5">
+            <LanguageSwitcher locale={locale} ariaLabel={languageSwitcherAriaLabel} />
+          </div>
 
           <Link
             href="#contato"

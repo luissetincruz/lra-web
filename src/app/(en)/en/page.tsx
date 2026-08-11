@@ -17,7 +17,7 @@ export default function EnglishHome() {
         {en.page.skipToContent}
       </a>
 
-      <SiteHeader content={en.header} />
+      <SiteHeader content={en.header} locale="en" />
 
       <main
         id="conteudo"

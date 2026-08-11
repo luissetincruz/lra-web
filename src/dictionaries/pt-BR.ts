@@ -8,6 +8,7 @@ export const ptBR = {
   header: {
     homeAriaLabel: "LRA Software — página inicial",
     navigationAriaLabel: "Navegação principal",
+    languageSwitcherAriaLabel: "Selecionar idioma",
     navigation: [
       { href: "#servicos", label: "Serviços" },
       { href: "#como-trabalhamos", label: "Como trabalhamos" },

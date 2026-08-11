@@ -8,6 +8,7 @@ export const en = {
   header: {
     homeAriaLabel: "LRA Software — home page",
     navigationAriaLabel: "Main navigation",
+    languageSwitcherAriaLabel: "Select language",
     navigation: [
       { href: "#servicos", label: "Services" },
       { href: "#como-trabalhamos", label: "How we work" },

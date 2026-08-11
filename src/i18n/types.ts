@@ -1,3 +1,5 @@
+export type Locale = "pt-BR" | "en";
+
 export type NavigationItem = Readonly<{
   href: string;
   label: string;
@@ -17,6 +19,7 @@ export type HomeDictionary = Readonly<{
   header: {
     homeAriaLabel: string;
     navigationAriaLabel: string;
+    languageSwitcherAriaLabel: string;
     navigation: readonly NavigationItem[];
     projectCta: string;
     mobile: {

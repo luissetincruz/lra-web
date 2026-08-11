@@ -20,7 +20,7 @@ export default function Home() {
         {ptBR.page.skipToContent}
       </a>
 
-      <SiteHeader content={ptBR.header} />
+      <SiteHeader content={ptBR.header} locale="pt-BR" />
 
       <main
         id="conteudo"

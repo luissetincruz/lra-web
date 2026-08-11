@@ -3,13 +3,15 @@ import Link from "next/link";
 
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { Container } from "@/components/ui/container";
-import type { HomeDictionary } from "@/i18n/types";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import type { HomeDictionary, Locale } from "@/i18n/types";
 
 type SiteHeaderProps = Readonly<{
   content: HomeDictionary["header"];
+  locale: Locale;
 }>;
 
-export function SiteHeader({ content }: SiteHeaderProps) {
+export function SiteHeader({ content, locale }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 isolate z-50 border-b border-black/5">
       <div
@@ -56,12 +58,20 @@ export function SiteHeader({ content }: SiteHeaderProps) {
             {content.projectCta}
           </Link>
 
+          <LanguageSwitcher
+            locale={locale}
+            ariaLabel={content.languageSwitcherAriaLabel}
+            className="hidden md:inline-flex"
+          />
+
           <MobileNavigation
             items={content.navigation}
             projectCta={content.projectCta}
             openMenuLabel={content.mobile.openMenuLabel}
             closeMenuLabel={content.mobile.closeMenuLabel}
             navigationAriaLabel={content.mobile.navigationAriaLabel}
+            languageSwitcherAriaLabel={content.languageSwitcherAriaLabel}
+            locale={locale}
           />
         </div>
       </Container>
