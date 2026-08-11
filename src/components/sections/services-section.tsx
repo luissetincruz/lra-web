@@ -28,7 +28,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
               key={service.code}
               className="flex min-h-full flex-col rounded-3xl border border-light-border bg-background p-6 shadow-card-light transition-[border-color,box-shadow] duration-200 hover:border-brand/30 hover:shadow-[0_20px_60px_rgb(15_23_42/10%)] sm:p-7"
             >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand-text">
                 {service.code}
               </span>
 

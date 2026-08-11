@@ -28,7 +28,7 @@ export function HeroSection({ content }: HeroSectionProps) {
       <Container className="relative">
         <div className="grid items-center gap-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand-soft px-4 py-2 text-xs font-semibold tracking-[0.16em] text-brand uppercase">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand-soft px-4 py-2 text-xs font-semibold tracking-[0.16em] text-brand-text uppercase">
               <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
 
               {content.eyebrow}
@@ -84,14 +84,14 @@ export function HeroSection({ content }: HeroSectionProps) {
             <div className="rounded-4xl border border-light-border bg-surface p-5 shadow-card-light sm:p-7">
               <div className="flex items-start justify-between gap-5 border-b border-light-border pb-6">
                 <div>
-                  <p className="font-mono text-xs tracking-[0.18em] text-brand uppercase">
+                  <p className="font-mono text-xs tracking-[0.18em] text-brand-text uppercase">
                     {content.flow.eyebrow}
                   </p>
 
                   <h2 className="mt-2 text-xl font-bold text-text">{content.flow.title}</h2>
                 </div>
 
-                <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-brand/20 bg-brand-soft px-3 py-1.5 text-xs font-medium text-brand">
+                <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-brand/20 bg-brand-soft px-3 py-1.5 text-xs font-medium text-brand-text">
                   <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
 
                   {content.flow.status}
@@ -104,7 +104,7 @@ export function HeroSection({ content }: HeroSectionProps) {
                     key={step.number}
                     className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-light-border bg-background p-4 sm:p-5"
                   >
-                    <span className="grid h-10 w-10 place-items-center rounded-xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand">
+                    <span className="grid h-10 w-10 place-items-center rounded-xl border border-brand/20 bg-brand-soft font-mono text-xs font-bold text-brand-text">
                       {step.number}
                     </span>
 
