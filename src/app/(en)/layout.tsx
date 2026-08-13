@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 const siteUrl = "https://www.lrasoftware.com";
 
-const title = "LRA Software — Custom software, automation and AI for businesses";
+const title = "LRA Software — Custom Software, Automation & AI";
 
 const description =
   "LRA Software builds custom software, automations, integrations, and AI-powered solutions for businesses.";
