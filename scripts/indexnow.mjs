@@ -1,24 +1,69 @@
 const key = "17189fc54af743c9b350a0493eed8407";
 const host = "www.lrasoftware.com";
 const endpoint = "https://api.indexnow.org/indexnow";
+const sitemapUrl = `https://${host}/sitemap.xml`;
 const keyLocation = `https://${host}/${key}.txt`;
 
-const urls = process.argv.slice(2);
+const args = process.argv.slice(2);
 
-if (urls.length === 0) {
-  console.error(
-    "Usage: npm run indexnow -- https://www.lrasoftware.com/ https://www.lrasoftware.com/en",
-  );
-  process.exit(1);
-}
+async function getUrlsFromSitemap() {
+  const response = await fetch(sitemapUrl);
 
-for (const value of urls) {
-  const url = new URL(value);
-
-  if (url.protocol !== "https:" || url.hostname !== host) {
-    throw new Error(`Invalid URL for ${host}: ${value}`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch sitemap (${response.status}): ${sitemapUrl}`);
   }
+
+  const xml = await response.text();
+
+  const urls = [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/gi)].map(([, value]) =>
+    value.trim().replaceAll("&amp;", "&"),
+  );
+
+  if (urls.length === 0) {
+    throw new Error(`No URLs found in sitemap: ${sitemapUrl}`);
+  }
+
+  return urls;
 }
+
+function validateUrls(values) {
+  const uniqueUrls = [...new Set(values)];
+
+  if (uniqueUrls.length === 0) {
+    throw new Error("No URLs provided for IndexNow submission.");
+  }
+
+  if (uniqueUrls.length > 10000) {
+    throw new Error(
+      `IndexNow supports at most 10,000 URLs per request. Received: ${uniqueUrls.length}`,
+    );
+  }
+
+  for (const value of uniqueUrls) {
+    const url = new URL(value);
+
+    if (url.protocol !== "https:" || url.hostname !== host) {
+      throw new Error(`Invalid URL for ${host}: ${value}`);
+    }
+  }
+
+  return uniqueUrls;
+}
+
+let urls;
+
+if (args.length === 1 && args[0] === "--sitemap") {
+  console.log(`Reading URLs from ${sitemapUrl}...`);
+  urls = await getUrlsFromSitemap();
+} else if (args.includes("--sitemap")) {
+  throw new Error("Use --sitemap by itself or provide URLs manually, but not both.");
+} else {
+  urls = args;
+}
+
+urls = validateUrls(urls);
+
+console.log(`Submitting ${urls.length} URL(s) to IndexNow...`);
 
 const response = await fetch(endpoint, {
   method: "POST",
